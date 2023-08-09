@@ -1,5 +1,7 @@
-# Converte uma Expressão Regular em Automato Finito de estados Vazios
+
 class ConvertERToAFNe:
+    def __init__(self):
+        self.message = "Convert Regular Expression to AFNe"
 
     def __init__(self):
         self.states = set()
@@ -38,7 +40,6 @@ class ConvertERToAFNe:
                 prevState = currentState - 1
                 currentState += 1
                 self.addState(currentState)
-                print(currentState)
                 self.addTransition(currentState-1, prevState, 'epsilon')
                 self.addTransition(prevState, currentState, 'epsilon')
                 self.addTransition(currentState, prevState, 'epsilon')
@@ -49,6 +50,7 @@ class ConvertERToAFNe:
                 self.addTransition(currentState - 1, currentState, char)
 
         self.addState(currentState, isFinal=True)
+
 
     def getStates(self):
         statesArray = []
@@ -69,31 +71,26 @@ class ConvertERToAFNe:
     def getTransitions(self):
         transitionsDict = dict()
         for fromState, transitions in self.transitions.items():
-            print(fromState)
             for toState, symbol in transitions:
                 transitionsDict[('q' + str(fromState), symbol)
                                 ] = {'q' + str(toState)}
         return transitionsDict
 
     def getStartState(self):
-        return 'q' + self.startState
+        return 'q' + str(self.startState)
 
     def getFinalState(self):
-        return 'q' + self.finalStates
+        finalStatesList = list()
+        for final in self.finalStates:
+            finalStatesList.append('q' + str(final))
+        return finalStatesList
 
-    def print_info(self):
-        print("States:", self.states)
-        print("Alphabet:", self.alphabet)
-        print("Transitions:")
+    def printInfo(self):
+        print("Estados: ", self.getStates())
+        print("Alfabeto: ", self.getAlphabet())
+        print("Transições: ")
         for fromState, transitions in self.transitions.items():
             for toState, symbol in transitions:
                 print(f"{fromState} -> {toState} : {symbol}")
-        print("Start State:", self.startState)
-        print("Final States:", self.finalStates)
-
-
-expression = "abb*"
-afne = ConvertERToAFNe()
-afne.convertRegex(expression)
-afne.print_info()
-print(afne.getTransitions())
+        print("Estado Inicial: ", self.getStartState())
+        print("Estados Finais: ", self.getFinalState())
