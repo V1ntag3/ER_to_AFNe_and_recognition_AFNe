@@ -14,7 +14,7 @@ Conversor de ER em AFNe e reconhecimento do autômato gerado
 Reconhece palavras com:
 
 - Caracteres concatenados
-- *
+- \*
 
 ## Instalação
 
