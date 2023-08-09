@@ -9,6 +9,12 @@ Conversor de ER em AFNe e reconhecimento do autômato gerado
 - Emanuel Mendes
 - Lucas William
 
+## Funcionalidades
+
+Reconhece palavras com:
+
+- Caracteres concatenados
+- *
 
 ## Instalação
 
@@ -47,4 +53,9 @@ Por fim entre com a palavra a qual deseja realizar o reconhecimento:
 
 ```python
 Entre com sua cadeia de caracteres: aaaaaaaaaaaab
+```
+E caso seja aceita retornará:
+
+```python
+Palavra é aceita
 ```
