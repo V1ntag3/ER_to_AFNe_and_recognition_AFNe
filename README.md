@@ -6,8 +6,8 @@ Conversor de ER em AFNe e reconhecimento do autômato gerado
 ## Autores
 
 - Marcos Vinicius Ribeiro Alencar
-- Emanuel Mendes
-- Lucas William
+- Emanuel Mendes Monteiro
+- Lucas William Gomes do Amaral
 
 ## Funcionalidades
 
