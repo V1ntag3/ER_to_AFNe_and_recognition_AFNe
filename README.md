@@ -15,6 +15,7 @@ Reconhece palavras com:
 
 - Caracteres concatenados
 - \*
+- \+
 
 ## Instalação
 
@@ -29,6 +30,12 @@ https://python.org.br/instalacao-windows/
 ## Uso/Exemplos
 
 Para utilizar o programa basta inicializar o arquivo main.py e entrar com a expressão desejada.
+
+Dentro da pasta abrir um terminal e digitar
+```python
+python main.py
+```
+
 ```python
 Entre com sua expressão regular: a*b
 ```
@@ -37,16 +44,16 @@ O programa irá processar a expressão regular e determinar o automato finito n�
 ```python
 
 O autômato gerado tem os seguintes dados: 
-Estados:  ['q0', 'q1', 'q2', 'q3']
-Alfabeto:  ['a', 'b']
-Transições: 
-0 -> 1 : a
-0 -> 2 : epsilon
-1 -> 0 : epsilon
-2 -> 0 : epsilon
-2 -> 3 : b
-Estado Inicial:  q0
-Estados Finais:  ['q3']
+Alfabeto: ['b', 'a']
+Estados: ['q0', 'q1', 'q2', 'q3', 'q4']
+Estado Inicial: q2
+Estado Final: ['q4']
+Trasições: 
+q0:a --> {q1}
+q0:epsilon --> {q3}
+q1:epsilon --> {q0, q3}
+q2:epsilon --> {q0}
+q3:b --> {q4}
 
 ```
 Por fim entre com a palavra a qual deseja realizar o reconhecimento:
